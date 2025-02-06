@@ -1,10 +1,25 @@
 import { API_TODO } from "../../constant/API_URL";
-import { FETCH_TODOS, ADD_TODO, CHANGE_NAME, DELETE_TODO } from "./actionTypes";
+import {
+    FETCH_TODOS,
+    ADD_TODO,
+    CHANGE_NAME,
+    DELETE_TODO,
+    SET_EDIT_ID,
+    EDIT_TODO,
+} from "./actionTypes";
 
 export const changeName = (name) => ({
     type: CHANGE_NAME,
     payload: {
         name,
+    },
+});
+
+export const setEditId = (editId, editName) => ({
+    type: SET_EDIT_ID,
+    payload: {
+        editId,
+        editName,
     },
 });
 
@@ -65,5 +80,27 @@ export const deleteTodo = (id) => async(dispatch) => {
         });
     } catch (error) {
         console.error("Ошибка при удалении задачи:", error);
+    }
+};
+
+export const editTodo = () => async(dispatch, getState) => {
+    const { todos } = getState();
+
+    try {
+        await fetch(`${API_TODO}/todos/${todos.editId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                name: todos.name,
+            }),
+        });
+
+        dispatch({
+            type: EDIT_TODO,
+        });
+    } catch (error) {
+        console.error("Ошибка при добавлении задачи:", error);
     }
 };
