@@ -5,19 +5,17 @@ import List from "../components/List/List";
 import { connect } from "react-redux";
 import { fetchTodos, addTodo, changeName } from "../modules/TodoList/actions";
 
-const TodoList = ({ fetchTodos, addTodo, name, changeName, todos }) => {
+const TodoList = ({ fetchTodos, addTodo, name, changeName, reloader }) => {
     useEffect(() => {
-        fetchTodos();
-    }, []);
+        if (!reloader) {
+            fetchTodos();
+        }
+    }, [reloader]);
 
     return ( <
         div >
         <
-        h1 > Todos List < /h1>
-
-        <
-        List todos = { todos }
-        /> <
+        h1 > Todos List < /h1> <List / > { " " } <
         Form name = { name }
         onSubmit = { addTodo } >
         <
@@ -25,18 +23,20 @@ const TodoList = ({ fetchTodos, addTodo, name, changeName, todos }) => {
         <
         Input value = { name }
         handleChange = { changeName }
-        /> <
-        /label> <
-        /Form> <
+        />{" "} <
+        /label>{" "} <
+        /Form>{" "} <
         /div>
     );
 };
 
 const mapStateToProps = (state) => ({
     name: state.todos.name,
-    todos: state.todos.data,
+    reloader: state.todos.reloader,
 });
 
-export default connect(mapStateToProps, { addTodo, fetchTodos, changeName })(
-    TodoList
-);
+export default connect(mapStateToProps, {
+    addTodo,
+    fetchTodos,
+    changeName,
+})(TodoList);

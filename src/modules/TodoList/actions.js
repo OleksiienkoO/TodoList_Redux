@@ -1,5 +1,5 @@
 import { API_TODO } from "../../constant/API_URL";
-import { FETCH_TODOS, ADD_TODO, CHANGE_NAME } from "./actionTypes";
+import { FETCH_TODOS, ADD_TODO, CHANGE_NAME, DELETE_TODO } from "./actionTypes";
 
 export const changeName = (name) => ({
     type: CHANGE_NAME,
@@ -51,5 +51,19 @@ export const addTodo = (name) => async(dispatch) => {
         });
     } catch (error) {
         console.error("Ошибка при добавлении задачи:", error);
+    }
+};
+
+export const deleteTodo = (id) => async(dispatch) => {
+    try {
+        await fetch(`${API_TODO}/todos/${id}`, {
+            method: "DELETE",
+        });
+
+        dispatch({
+            type: DELETE_TODO,
+        });
+    } catch (error) {
+        console.error("Ошибка при удалении задачи:", error);
     }
 };

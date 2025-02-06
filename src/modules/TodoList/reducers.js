@@ -1,8 +1,10 @@
-import { FETCH_TODOS, ADD_TODO, CHANGE_NAME } from "./actionTypes";
+import { FETCH_TODOS, ADD_TODO, CHANGE_NAME, DELETE_TODO } from "./actionTypes";
 
 const initialState = {
     data: [],
     name: "",
+    id: "",
+    reloader: false,
 };
 
 const todos = (state = initialState, action) => {
@@ -10,7 +12,7 @@ const todos = (state = initialState, action) => {
         case FETCH_TODOS:
             {
                 const { data } = action.payload;
-                return {...state, data };
+                return {...state, data, reloader: true };
             }
         case ADD_TODO:
             {
@@ -27,6 +29,10 @@ const todos = (state = initialState, action) => {
                     ...state,
                     name: action.payload.name,
                 };
+            }
+        case DELETE_TODO:
+            {
+                return {...state, reloader: false };
             }
         default:
             return state;
