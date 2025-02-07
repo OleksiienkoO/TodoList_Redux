@@ -6,7 +6,13 @@ import {
     DELETE_TODO,
     SET_EDIT_ID,
     EDIT_TODO,
+    SET_PAGE,
 } from "./actionTypes";
+
+export const setPage = (page) => ({
+    type: SET_PAGE,
+    payload: { page },
+});
 
 export const changeName = (name) => ({
     type: CHANGE_NAME,

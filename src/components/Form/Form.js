@@ -1,13 +1,16 @@
 import React from "react";
+import "./Form.css";
 
-const Form = ({ children, onSubmit, name }) => {
+const Form = ({ children, onSubmit, name, className }) => {
     const addOnSubmit = (e) => {
         e.preventDefault();
         onSubmit(name);
     };
 
     return ( <
-        form onSubmit = { addOnSubmit } > { " " } { children } < input type = "submit" / >
+        form className = { className }
+        onSubmit = { addOnSubmit } > { " " } { children } < input className = "form-submit"
+        type = "submit" / >
         <
         /form>
     );

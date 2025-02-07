@@ -1,0 +1,48 @@
+body {
+    background: #2a9aef;
+}
+
+.todo-flex_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.todo-header {
+    font: 500 60px "Crimson", serif;
+    color: #282e33;
+    margin: 0;
+}
+
+.todo-list {
+    background-color: #448dc5;
+    width: 350px;
+    height: 350px;
+    border: #4f7a9b solid 1px;
+    border-radius: 5px;
+}
+
+.list-container {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.list {
+    padding: 0;
+    margin: 10px 0 10px 0;
+    max-height: 250px;
+}
+
+.paginator {
+    padding-top: 15px;
+    text-align: center;
+}
+
+.todo-form {
+    padding: 0 0 15px 10px;
+    align-items: center;
+}

@@ -5,6 +5,7 @@ import {
     DELETE_TODO,
     SET_EDIT_ID,
     EDIT_TODO,
+    SET_PAGE,
 } from "./actionTypes";
 
 const initialState = {
@@ -13,6 +14,8 @@ const initialState = {
     id: "",
     reloader: false,
     editId: null,
+    curentPage: 1,
+    itemsPerPage: 10,
 };
 
 const todos = (state = initialState, action) => {
@@ -51,6 +54,11 @@ const todos = (state = initialState, action) => {
             {
                 return {...state, reloader: false, name: "", editId: null };
             }
+        case SET_PAGE:
+            {
+                return {...state, curentPage: action.payload.page };
+            }
+
         default:
             return state;
     }

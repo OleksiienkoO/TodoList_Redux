@@ -1,0 +1,11 @@
+.paginator-button {
+    border: none;
+    background-color: #4f7a9b;
+    padding: 3px 5px;
+    border-radius: 3px;
+}
+
+.paginator-font {
+    font: 500 18px "Crimson", sans;
+    color: #282e33;
+}

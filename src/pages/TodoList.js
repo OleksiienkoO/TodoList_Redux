@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Form from "../components/Form/Form";
 import Input from "../components/Input/Input";
 import List from "../components/List/List";
+import Paginator from "../components/Paginator/Paginator";
 import { connect } from "react-redux";
 import {
     fetchTodos,
@@ -9,6 +10,7 @@ import {
     changeName,
     editTodo,
 } from "../modules/TodoList/actions";
+import "./TodoList.css";
 
 const TodoList = ({
     fetchTodos,
@@ -26,10 +28,18 @@ const TodoList = ({
     }, [reloader]);
 
     return ( <
-        div >
+        div className = "todo-flex_container" >
         <
-        h1 > Todos List < /h1> <List / > { " " } <
-        Form name = { name }
+        h1 className = "todo-header" > Todos List < /h1>{" "} <
+        div className = "todo-list" >
+        <
+        Paginator className = "paginator" / >
+        <
+        div className = "list-container" >
+        <
+        List className = "list" / > { " " } <
+        Form className = "todo-form"
+        name = { name }
         onSubmit = { editId ? editTodo : addTodo } >
         <
         label >
@@ -39,6 +49,8 @@ const TodoList = ({
         />{" "} <
         /label>{" "} <
         /Form>{" "} <
+        /div>{" "} <
+        /div>{" "} <
         /div>
     );
 };
