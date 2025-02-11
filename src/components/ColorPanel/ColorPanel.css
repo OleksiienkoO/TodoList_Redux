@@ -1,0 +1,21 @@
+.blue_color {
+    padding: 10px;
+    background-color: #43688f;
+    border: none;
+}
+
+.red_color {
+    padding: 10px;
+    background-color: #ff0000;
+    border: none;
+}
+
+.theme-blue {
+    background-color: #2a9aef;
+    color: #073a5a;
+}
+
+.theme-red {
+    background-color: #b44e47;
+    color: #361512;
+}

@@ -28,7 +28,7 @@ const TodoList = ({
     }, [reloader]);
 
     return ( <
-        div className = "todo-flex_container" >
+        div className = "todo_flex-container" >
         <
         h1 className = "todo-header" > Todos List < /h1>{" "} <
         div className = "todo-list" >

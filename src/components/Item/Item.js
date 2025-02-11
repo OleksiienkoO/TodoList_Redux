@@ -19,7 +19,7 @@ const Item = ({ item, deleteTodo, setEditId }) => ( <
             setEditId(item.id, item.name);
         }
     }
-    /> <
+    />{" "} <
     /div>{" "} <
     /li>
 );

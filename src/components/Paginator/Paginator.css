@@ -5,7 +5,10 @@
     border-radius: 3px;
 }
 
+.theme-red .paginator-button {
+    background-color: #7c3838;
+}
+
 .paginator-font {
     font: 500 18px "Crimson", sans;
-    color: #282e33;
 }

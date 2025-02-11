@@ -2,4 +2,20 @@
 body {
     max-width: 1200px;
     margin: 0 auto;
+    color: #073a5a;
+    background-color: #2a9aef;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    color: inherit;
+    cursor: pointer;
+}
+
+input::placeholder {
+    color: inherit;
+    opacity: 0.6;
 }

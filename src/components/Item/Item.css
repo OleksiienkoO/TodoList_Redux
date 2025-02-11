@@ -1,7 +1,6 @@
 .todo-item {
     list-style: none;
     font: 400 18px "Crimson", serif;
-    color: #282e33;
     display: flex;
     justify-content: space-between;
     padding: 0 10px;

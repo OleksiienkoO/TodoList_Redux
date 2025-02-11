@@ -4,5 +4,8 @@
     padding: 2px 5px;
     border-radius: 3px;
     font: 500 18px "Crimson", sans;
-    color: #282e33;
+}
+
+.theme-red .form-submit {
+    background-color: #7c3838;
 }
